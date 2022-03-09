@@ -274,14 +274,15 @@ p {
 .interest ul li {
   list-style: none;
   color: #3d3d3d;
+  font-size: 1em;
   font-weight: 500;
   margin: 10px 0;
 }
 
-.interest ul li .fa {
+.interest ul li i {
   color: #00da36;
-  font-size: 18px;
-  width: 20px;
+  font-size: 25px;
+  width: 30px;
 }
 
 .contact ul {
@@ -298,13 +299,13 @@ p {
 .contact ul li .icon {
   display: inline-block;
   width: 30px;
-  font-size: 18px;
+  font-size: 25px;
   color: #00da36;
 }
 
 .contact ul li span {
   color: #3d3d3d;
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 300;
 }
 
@@ -376,11 +377,14 @@ p {
 }
 
 @media (max-width: 400px) {
-  .contactInfo ul li span {
-    font-size: 0.78em;
-  }
   .about .boxA {
     font-size: 90%;
+  }
+  .interest ul li i {
+    font-size: 20px;
+  }
+  .contact ul li span {
+    font-size: 0.8em;
   }
 }
 
@@ -391,8 +395,11 @@ p {
   .about .boxA {
     font-size: 70%;
   }
-  .about.contact ul li span {
-    font-size: 0.78em;
+  .contact ul li .icon {
+    font-size: 20px;
+  }
+  .contact ul li span {
+    font-size: 0.71em;
   }
 }
 
@@ -402,8 +409,5 @@ p {
   }
   .about .boxA {
     font-size: 65%;
-  }
-  .about.contact ul li span {
-    font-size: 0.718em;
   }
 }
