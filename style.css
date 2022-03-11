@@ -50,10 +50,12 @@ section::after {
   max-width: 1000px;
   min-height: 1000px;
   margin: 50px;
-  background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-  border-radius: 2rem;
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
   overflow: hidden;
-  backdrop-filter: blur(25px);
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
@@ -65,7 +67,6 @@ section::after {
   left: -40%;
   width: 100%;
   height: 100%;
-  background: transparent;
   pointer-events: none;
 }
 
@@ -74,8 +75,8 @@ section::after {
   position: relative;
   background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.3));
   padding: 40px;
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .profileText {
@@ -217,8 +218,16 @@ section::after {
 .container .right-side {
   position: relative;
   padding: 40px;
-  border-bottom-right-radius: 2rem;
-  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+}
+
+.container .right-side::before {
+  content: '';
+  background: rgba(255, 255, 255, 0.05);
+  transform: skewX(-10deg);
 }
 
 .about {
@@ -236,7 +245,7 @@ section::after {
 }
 
 .about .boxA .textA h4 {
-  color: #00da36;
+  color: #00ff88;
 }
 
 .about .boxA .textB {
@@ -244,26 +253,20 @@ section::after {
 }
 
 .title2 {
-  color: #003d22;
+  color: #02be66;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 10px;
 }
 
 p {
-  color: #3d3d3d;
+  color: #fff;
 }
 
 .about .box {
   display: flex;
   flex-direction: row;
   margin: 20px 0;
-}
-
-.about .box .text h4 {
-  text-transform: uppercase;
-  color: #003d22;
-  font-size: 16px;
 }
 
 .interest ul {
@@ -273,14 +276,14 @@ p {
 
 .interest ul li {
   list-style: none;
-  color: #3d3d3d;
+  color: #fff;
   font-size: 1em;
   font-weight: 500;
   margin: 10px 0;
 }
 
 .interest ul li i {
-  color: #00da36;
+  color: #00ff88;
   font-size: 25px;
   width: 30px;
 }
@@ -300,18 +303,18 @@ p {
   display: inline-block;
   width: 30px;
   font-size: 25px;
-  color: #00da36;
+  color: #00ff88;
 }
 
 .contact ul li span {
-  color: #3d3d3d;
+  color: #fff;
   font-size: 1em;
   font-weight: 300;
 }
 
 .contact ul li span a {
   text-decoration: none;
-  color: #3d3d3d;
+  color: #fff;
 }
 
 /* Kanan */
@@ -337,12 +340,12 @@ p {
     transform: translate(-420px, -900px);
   }
   .container .left-side {
-    border-top-left-radius: 2rem;
+    border-top-left-radius: 1rem;
     border-bottom-left-radius: 0;
-    border-top-right-radius: 2rem;
+    border-top-right-radius: 1rem;
   }
   .container .right-side {
-    border-bottom-left-radius: 2rem;
+    border-bottom-left-radius: 1rem;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -365,9 +368,6 @@ p {
   .about .box {
     flex-direction: column;
   }
-  .about .box .year_company {
-    margin-bottom: 5px;
-  }
   .interest ul {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -377,14 +377,11 @@ p {
 }
 
 @media (max-width: 400px) {
-  .about .boxA {
-    font-size: 90%;
-  }
-  .interest ul li i {
-    font-size: 20px;
-  }
   .contact ul li span {
-    font-size: 0.8em;
+    font-size: 0.78em;
+  }
+  .about .boxA {
+    font-size: 80%;
   }
 }
 
@@ -393,13 +390,10 @@ p {
     font-size: 1.25em;
   }
   .about .boxA {
-    font-size: 70%;
-  }
-  .contact ul li .icon {
-    font-size: 20px;
+    font-size: 65%;
   }
   .contact ul li span {
-    font-size: 0.71em;
+    font-size: 0.65em;
   }
 }
 
@@ -408,6 +402,6 @@ p {
     transform: translate(200px, 900px);
   }
   .about .boxA {
-    font-size: 65%;
+    font-size: 60%;
   }
 }

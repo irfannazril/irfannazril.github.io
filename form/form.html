@@ -6,55 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Form</title>
     <link rel="stylesheet" href="form.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   </head>
   <body>
     <div class="ovrflw">
-      <section>
-        <div class="container">
-          <h2>Contact Form</h2>
-          <div class="row100">
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required" />
-                <span class="text">Nama</span>
-                <span class="line"></span>
-              </div>
-            </div>
-          </div>
-          <div class="row100">
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required" />
-                <span class="text">Email</span>
-                <span class="line"></span>
-              </div>
-            </div>
-            <div class="col">
-              <div class="inputBox">
-                <input type="text" name="" required="required" />
-                <span class="text">Nomor Telepon</span>
-                <span class="line"></span>
-              </div>
-            </div>
-          </div>
+      <!-- Alert -->
+      <div class="alert show none">
+        <span class="check fa-solid fa-circle-check"></span>
+        <span class="msg">Terimakasih pesan Anda telah terkirim</span>
+        <span class="close-btn">
+          <span class="cross fa-solid fa-xmark"></span>
+        </span>
+      </div>
+      <!-- Alert -->
 
-          <div class="row100">
-            <div class="col">
-              <div class="inputBox textarea">
-                <textarea name="" required="required"></textarea>
-                <span class="text">Pesan</span>
-                <span class="line"></span>
+      <form name="contact-form">
+        <section>
+          <!-- Form -->
+          <div class="container">
+            <h2>Contact Form</h2>
+            <div class="row100">
+              <div class="col">
+                <div class="inputBox">
+                  <input type="text" name="nama" required="required" />
+                  <span class="text">Nama</span>
+                  <span class="line"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row100">
+              <div class="col">
+                <div class="inputBox">
+                  <input type="email" name="email" required="required" />
+                  <span class="text">Email</span>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="col">
+                <div class="inputBox">
+                  <input type="text" name="nomor telepon" required="required" />
+                  <span class="text">Nomor Telepon</span>
+                  <span class="line"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row100">
+              <div class="col">
+                <div class="inputBox textarea">
+                  <textarea name="pesan" required="required"></textarea>
+                  <span class="text">Pesan</span>
+                  <span class="line"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="row100">
+              <div class="col">
+                <button type="submit" class="kirim" name="">Kirim</button>
+                <button class="loader none"></button>
               </div>
             </div>
           </div>
-
-          <div class="row100">
-            <div class="col">
-              <input type="submit" name="" value="Kirim" />
-            </div>
-          </div>
-        </div>
-      </section>
+        </section>
+      </form>
     </div>
+
+    <script></script>
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzAJ6X4cqZj_6GaAOT5PgzX75ibh90ZQt5QFziY61ZxtLANhATFMAHTkuKpSoaZjaXP-Q/exec';
+      const form = document.forms['contact-form'];
+      const kirim = document.querySelector('.kirim');
+      const loading = document.querySelector('.loader');
+      const alert = document.querySelector('.alert');
+      const tutupAlert = document.querySelector('.close-btn');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // tampilkan loading, hilangkan tombol
+        loading.classList.toggle('none');
+        kirim.classList.toggle('none');
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then((response) => {
+            // tampilkan kirim, hilangkan loading
+            loading.classList.toggle('none');
+            kirim.classList.toggle('none');
+            // tampilkan alert
+            alert.classList.toggle('none');
+            // reset form
+            form.reset();
+            console.log('Success!', response);
+          })
+          .catch((error) => console.error('Error!', error.message));
+      });
+
+      $('.close-btn').click(function () {
+        alert.classList.toggle('none');
+      });
+    </script>
   </body>
 </html>
