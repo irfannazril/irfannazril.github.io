@@ -382,16 +382,13 @@ p {
     font-size: 0.78em;
   }
   .about .boxA {
-    font-size: 70%;
+    font-size: 60%;
   }
 }
 
 @media (max-width: 350px) {
   .profileText h2 {
     font-size: 1.25em;
-  }
-  .about .boxA {
-    font-size: 60%;
   }
   .contact ul li span {
     font-size: 0.65em;
