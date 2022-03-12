@@ -391,7 +391,7 @@ p {
     font-size: 1.25em;
   }
   .about .boxA {
-    font-size: 45%;
+    font-size: 35%;
   }
   .contact ul li span {
     font-size: 0.65em;
@@ -403,6 +403,6 @@ p {
     transform: translate(200px, 900px);
   }
   .about .boxA {
-    font-size: 40%;
+    font-size: 30%;
   }
 }
