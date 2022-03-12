@@ -390,7 +390,8 @@ p {
   .profileText h2 {
     font-size: 1.25em;
   }
-  .about .boxA {
+  .about .boxA .textA,
+  .about .boxA .textB {
     font-size: 35%;
   }
   .contact ul li span {
@@ -402,7 +403,8 @@ p {
   section::before {
     transform: translate(200px, 900px);
   }
-  .about .boxA {
+  .about .boxA .textA,
+  .about .boxA .textB {
     font-size: 30%;
   }
 }
