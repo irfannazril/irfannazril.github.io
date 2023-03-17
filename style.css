@@ -291,6 +291,8 @@ p {
 
 .contact ul {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .contact ul li {
