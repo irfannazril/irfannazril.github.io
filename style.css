@@ -159,14 +159,14 @@ section::after {
   font-weight: 500;
 }
 
-.contactInfo.education h4:nth-child(2) {
-  color: #3d3d3d;
-  font-weight: 500;
-}
-
 .contactInfo.education h4 {
   color: #3d3d3d;
   font-weight: 300;
+}
+
+.contactInfo.education h4:nth-child(2) {
+  color: #3d3d3d;
+  font-weight: 500;
 }
 
 .contactInfo.language .percent {
